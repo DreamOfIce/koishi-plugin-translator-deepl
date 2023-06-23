@@ -1,0 +1,67 @@
+{
+  "name": "koishi-plugin-translator-deepl",
+  "version": "0.0.1",
+  "description": "Use Deepl translation for free in Koishi",
+  "keywords": [
+    "chatbot",
+    "koishi",
+    "plugin"
+  ],
+  "license": "MIT",
+  "author": "冰雪殇璃陌梦 <admin@dreamofice.cn> (https://www.dreamofice.cn)",
+  "main": "./lib/index.js",
+  "module": "./lib/index.mjs",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "lib",
+    "dist"
+  ],
+  "homepage": "https://github.com/DreamOfIce/koishi-plugin-translator-deepl#readme",
+  "bugs": {
+    "url": "https://github.com/DreamOfIce/koishi-plugin-translator-deepl/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DreamOfIce/koishi-plugin-translator-deepl.git"
+  },
+  "scripts": {
+    "build": "tsup",
+    "postinstall": "husky install",
+    "lint": "yarn lint:eslint; yarn lint:prettier",
+    "lint:eslint": "eslint --ext .ts --fix ./src",
+    "lint:prettier": "prettier --write .",
+    "prepack": "pinst --disable",
+    "postpack": "pinst --enable",
+    "release": "dotenv release-it",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "resolutions": {
+    "ts-node": "npm:@dreamofice/ts-node@^10.9.2"
+  },
+  "dependencies": {
+    "@koishijs/translator": "^1.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.5",
+    "@commitlint/config-conventional": "^17.6.5",
+    "@koishijs/eslint-config": "^1.0.2",
+    "@release-it/conventional-changelog": "^5.1.1",
+    "@tsconfig/esm": "^1.0.3",
+    "@tsconfig/strictest": "^2.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.60.0",
+    "@typescript-eslint/parser": "^5.60.0",
+    "dotenv-cli": "^7.2.1",
+    "eslint": "^8.43.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "husky": "^8.0.3",
+    "nano-staged": "^0.8.0",
+    "pinst": "^3.0.0",
+    "prettier": "^2.8.8",
+    "prettier-plugin-packagejson": "^2.4.3",
+    "release-it": "^15.11.0"
+  },
+  "peerDependencies": {
+    "koishi": "^4.13.4"
+  }
+}
