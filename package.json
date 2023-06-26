@@ -1,20 +1,13 @@
 {
   "name": "koishi-plugin-translator-deepl",
   "version": "0.0.1",
-  "description": "Use Deepl translation for free in Koishi",
+  "description": "Use Deepl translation in Koishi",
   "keywords": [
     "chatbot",
+    "deepl",
     "koishi",
-    "plugin"
-  ],
-  "license": "MIT",
-  "author": "冰雪殇璃陌梦 <admin@dreamofice.cn> (https://www.dreamofice.cn)",
-  "main": "./lib/index.js",
-  "module": "./lib/index.mjs",
-  "types": "./lib/index.d.ts",
-  "files": [
-    "lib",
-    "dist"
+    "plugin",
+    "translation"
   ],
   "homepage": "https://github.com/DreamOfIce/koishi-plugin-translator-deepl#readme",
   "bugs": {
@@ -24,6 +17,19 @@
     "type": "git",
     "url": "git+https://github.com/DreamOfIce/koishi-plugin-translator-deepl.git"
   },
+  "license": "MIT",
+  "author": {
+    "name": "冰雪殇璃陌梦",
+    "email": "admin@dreamofice.cn",
+    "url": "https://www.dreamofice.cn"
+  },
+  "main": "./lib/index.js",
+  "module": "./lib/index.mjs",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "lib",
+    "dist"
+  ],
   "scripts": {
     "build": "tsup",
     "postinstall": "husky install",
@@ -63,5 +69,16 @@
   },
   "peerDependencies": {
     "koishi": "^4.13.4"
+  },
+  "koishi": {
+    "description": {
+      "en": "Deepl translation",
+      "zh": "使用 Deepl 翻译"
+    },
+    "service": {
+      "implements": [
+        "translator"
+      ]
+    }
   }
 }
