@@ -36,7 +36,6 @@ class DeeplTranslator extends Translator<DeeplTranslator.Config> {
       validateStatus: (status) =>
         (status >= 200 && status < 300) || status === 400 || status === 429,
     });
-    console.log(status, data);
     switch (status) {
       case 400: {
         switch (data.error?.code) {
