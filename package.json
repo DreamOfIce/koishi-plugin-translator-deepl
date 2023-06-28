@@ -45,17 +45,17 @@
     "ts-node": "npm:@dreamofice/ts-node@^10.9.2"
   },
   "dependencies": {
-    "@koishijs/translator": "^1.0.0"
+    "@koishijs/translator": "^1.1.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.6.5",
-    "@commitlint/config-conventional": "^17.6.5",
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
     "@koishijs/eslint-config": "^1.0.2",
     "@release-it/conventional-changelog": "^5.1.1",
-    "@tsconfig/esm": "^1.0.3",
+    "@tsconfig/esm": "^1.0.4",
     "@tsconfig/strictest": "^2.0.1",
-    "@typescript-eslint/eslint-plugin": "^5.60.0",
-    "@typescript-eslint/parser": "^5.60.0",
+    "@typescript-eslint/eslint-plugin": "^5.60.1",
+    "@typescript-eslint/parser": "^5.60.1",
     "dotenv-cli": "^7.2.1",
     "eslint": "^8.43.0",
     "eslint-config-prettier": "^8.8.0",
@@ -65,7 +65,8 @@
     "pinst": "^3.0.0",
     "prettier": "^2.8.8",
     "prettier-plugin-packagejson": "^2.4.3",
-    "release-it": "^15.11.0"
+    "release-it": "^15.11.0",
+    "tsup": "^7.1.0"
   },
   "peerDependencies": {
     "koishi": "^4.13.4"
