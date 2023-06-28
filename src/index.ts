@@ -1,16 +1,22 @@
 import Translator from "@koishijs/translator";
-import { Schema } from "koishi";
+import { Context, Logger, Schema, SessionError } from "koishi";
 import type { Response } from "./types";
-import { generateRequestBody } from "./utils";
+import { defineLocales, generateRequestBody } from "./utils";
 
+const logger = new Logger("translator-deepl");
 class DeeplTranslator extends Translator<DeeplTranslator.Config> {
   private id = Math.random() * 2 ** 32;
 
-  public override async translate(options: Translator.Result): Promise<string> {
+  public constructor(ctx: Context, config: DeeplTranslator.Config) {
+    super(ctx, config);
+    defineLocales(ctx);
+  }
+
+  public async translate(options: Translator.Result): Promise<string> {
     const { input, source, target = "ZH" } = options;
-    const { data, status } = await this.ctx.http.axios<Response>("POST", {
-      url: "/translate",
-      baseURL: "https://ww2.deepl.com",
+    const { data, status } = await this.ctx.http.axios<Response>("/jsonrpc", {
+      method: "post",
+      baseURL: "https://www2.deepl.com",
       data: generateRequestBody(
         this.id++,
         input,
@@ -30,26 +36,29 @@ class DeeplTranslator extends Translator<DeeplTranslator.Config> {
       validateStatus: (status) =>
         (status >= 200 && status < 300) || status === 400 || status === 429,
     });
-
+    console.log(status, data);
     switch (status) {
       case 400: {
         switch (data.error?.code) {
-          case -32600:
-            throw new Error(
-              `Unsupport target language: ${target.toUpperCase()}`
-            );
+          case -32600: {
+            logger.error(`Unsupport target language: ${target.toUpperCase()}`);
+
+            throw new SessionError(".deepl.unsupportTarget", { lang: target });
+          }
           default:
-            throw new Error(
+            logger.error(
               `An unknown error has occurred${
                 data.error
                   ? `: ${data.error?.message}(${data.error?.code})`
                   : ""
               }`
             );
+            throw new SessionError(".deepl.unknownError");
         }
       }
       case 429:
-        throw new Error("Too many requests");
+        logger.error("Too many requests");
+        throw new SessionError(".deepl.tooManyRequests");
       default:
         return data.result.texts[0].text;
     }

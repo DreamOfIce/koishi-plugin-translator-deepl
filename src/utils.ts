@@ -1,4 +1,11 @@
+import type { Context, I18n } from "koishi";
+import * as locales from "./locales";
 import type { Request } from "./types";
+
+export const defineLocales = (ctx: Context) =>
+  Object.entries(locales).forEach(([lang, locale]) =>
+    ctx.i18n.define(lang, locale as unknown as I18n.Store)
+  );
 
 const getTimestamp = (str: string) => {
   const timestamp = new Date().getUTCMilliseconds();
