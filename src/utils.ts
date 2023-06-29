@@ -11,12 +11,12 @@ const getTimestamp = (str: string) => {
   const timestamp = new Date().getUTCMilliseconds();
   const iCount = [...str].filter((c) => c === "i").length;
 
-  if (iCount !== 1) return timestamp - (timestamp % (iCount + 1)) + iCount + 1;
+  if (iCount !== 0) return timestamp - (timestamp % (iCount + 1)) + iCount + 1;
   else return timestamp;
 };
 
 const stringifyRequest = (req: Request) => {
-  const json = JSON.stringify(req);
+  const json = JSON.stringify(req, undefined, 2);
   return (req.id + 5) % 29 === 0 || (req.id + 3) % 13 === 0
     ? json.replace(/"method":"/g, '"method" : "')
     : json;

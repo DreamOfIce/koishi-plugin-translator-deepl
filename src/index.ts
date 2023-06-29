@@ -24,7 +24,9 @@ class DeeplTranslator extends Translator<DeeplTranslator.Config> {
         source?.toUpperCase()
       ),
       headers: {
-        "Accept-Language": "zh-CN,zh-Hans;q=0.9",
+        Accept: "*/*",
+        "Accept-Language": "en-US,en;q=0.9",
+        Connection: "keep-alive",
         "Content-Type": "application/json",
         "User-Agent": "DeepL-iOS/2.9.0 iOS 16.5.0 (iPad13,1)",
         "x-app-os-name": "iPadOS",
