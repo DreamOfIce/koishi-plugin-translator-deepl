@@ -16,7 +16,7 @@ const getTimestamp = (str: string) => {
 };
 
 const stringifyRequest = (req: Request) => {
-  const json = JSON.stringify(req, undefined, 2);
+  const json = JSON.stringify(req, undefined, 4);
   return (req.id + 5) % 29 === 0 || (req.id + 3) % 13 === 0
     ? json.replace(/"method":"/g, '"method" : "')
     : json;
