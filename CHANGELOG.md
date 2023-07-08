@@ -1,3 +1,9 @@
+## [1.0.1](https://github.com/DreamOfIce/koishi-plugin-translator-deepl/compare/1.0.0...1.0.1) (2023-07-08)
+
+### Bug Fixes
+
+- fix 429 error ([8e17b06](https://github.com/DreamOfIce/koishi-plugin-translator-deepl/commit/8e17b06a12a028095116b67fc647d4322e9be961))
+
 ## 1.0.0 (2023-07-04)
 
 ### Features

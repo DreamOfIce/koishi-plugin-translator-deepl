@@ -1,6 +1,6 @@
 {
   "name": "koishi-plugin-translator-deepl",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Use Deepl translation in Koishi",
   "keywords": [
     "chatbot",
