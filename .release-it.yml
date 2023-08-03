@@ -9,4 +9,4 @@ plugins:
     preset: conventionalcommits
     infile: CHANGELOG.md
 hooks:
-  after:version:bump: yarn install
+  before:git:release: yarn install
