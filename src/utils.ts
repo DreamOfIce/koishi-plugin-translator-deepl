@@ -2,11 +2,6 @@ import type { Context, I18n } from "koishi";
 import * as locales from "./locales";
 import type { Request } from "./types";
 
-export const defineLocales = (ctx: Context) =>
-  Object.entries(locales).forEach(([lang, locale]) =>
-    ctx.i18n.define(lang, locale as unknown as I18n.Store)
-  );
-
 const getTimestamp = (str: string) => {
   const timestamp = new Date().getUTCMilliseconds();
   const iCount = [...str].filter((c) => c === "i").length;
@@ -22,11 +17,16 @@ const stringifyRequest = (req: Request) => {
     : json;
 };
 
+export const defineLocales = (ctx: Context) =>
+  Object.entries(locales).forEach(([lang, locale]) =>
+    ctx.i18n.define(lang, locale as unknown as I18n.Store),
+  );
+
 export const generateRequestBody = (
   id: number,
   text: string,
   targetLang: string,
-  sourceLang?: string
+  sourceLang?: string,
 ): string =>
   stringifyRequest({
     jsonrpc: "2.0",

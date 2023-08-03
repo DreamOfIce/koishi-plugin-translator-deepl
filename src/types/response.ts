@@ -13,7 +13,7 @@ export interface Response {
       {
         alternatives: string[];
         text: string;
-      }
+      },
     ];
     lang: string;
     lang_is_confident: boolean;
