@@ -72,7 +72,7 @@
     "typescript": "^5.1.6"
   },
   "peerDependencies": {
-    "koishi": "^4.13.6"
+    "koishi": "^4.14.0"
   },
   "koishi": {
     "browser": true,
