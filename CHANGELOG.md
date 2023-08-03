@@ -1,3 +1,9 @@
+## [1.1.0](https://github.com/DreamOfIce/koishi-plugin-translator-deepl/compare/1.0.1...1.1.0) (2023-08-03)
+
+### Features
+
+- detect the input language to improve the experience ([2353234](https://github.com/DreamOfIce/koishi-plugin-translator-deepl/commit/23532343a4a905d8291cbb8a2e70c8fe014de11c))
+
 ## [1.0.1](https://github.com/DreamOfIce/koishi-plugin-translator-deepl/compare/1.0.0...1.0.1) (2023-07-08)
 
 ### Bug Fixes
